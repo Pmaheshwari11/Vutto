@@ -1,0 +1,21 @@
+{
+  "name": "bike-auction-platform",
+  "version": "1.0.0",
+  "description": "Production-grade Bike Auction Platform with real-time bidding, soft-close anti-sniping, concurrency control, and operational observability",
+  "private": true,
+  "scripts": {
+    "install:all": "npm install && cd server && npm install && cd ../client && npm install",
+    "dev": "concurrently -k -p \"[{name}]\" -n \"SERVER,CLIENT\" -c \"cyan.bold,green.bold\" \"npm run dev:server\" \"npm run dev:client\"",
+    "dev:server": "cd server && npm run dev",
+    "dev:client": "cd client && npm run dev",
+    "build": "cd client && npm run build && cd ../server && npm run build",
+    "start": "cd server && npm start",
+    "test": "cd server && npm test",
+    "lint": "cd client && npm run lint"
+  },
+  "devDependencies": {
+    "concurrently": "^9.1.2"
+  },
+  "author": "Engineering Team",
+  "license": "MIT"
+}
